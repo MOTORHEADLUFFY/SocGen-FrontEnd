@@ -38,7 +38,7 @@ export class AppComponent {
       this.employeeData = res;
       this.displayData = res;
       this.displayData.sort( (a, b) => {
-        return a.firstName.localeCompare(b.lastName);
+        return a.firstName.localeCompare(b.firstName);
       })
     })
   }
