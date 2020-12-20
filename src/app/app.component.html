@@ -44,29 +44,34 @@
     </form>
   </div>
   <div class="table">
-    <input type="text" [(ngModel)]="searchBox" (ngModelChange)="onSearch()" placeholder="Search...">
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Gender</th>
-          <th>Department</th>
-          <th>Date of Birth</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let employee of displayData">
-          <td>{{employee.id}}</td>
-          <td>{{employee.firstName}}</td>
-          <td>{{employee.lastName}}</td>
-          <td>{{employee.gender}}</td>
-          <td>{{employee.department}}</td>
-          <td>{{employee.dateOfBirth.substring(0, 10)}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <label>
+      &nbsp;
+      <input type="text" [(ngModel)]="searchBox" (ngModelChange)="onSearch()" placeholder="Search...">
+    </label>
+    <div class="employeeTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Date of Birth</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of displayData">
+            <td>{{employee.id}}</td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.department}}</td>
+            <td>{{employee.dateOfBirth.substring(0, 10)}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-<button class= "delete" (click)="deleteAll()">Delete All</button>
+<button class="delete" (click)="deleteAll()">Delete All</button>
