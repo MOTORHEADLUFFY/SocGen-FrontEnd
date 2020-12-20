@@ -47,6 +47,7 @@ export class AppComponent {
     let employee = this.employeeForm.value as Employee;
     this.employeeService.addEmployee(employee).subscribe((res: Response) => {
       if(res.responseCode === "0"){
+        alert(res.responseMessage);
         this.createTable();
       } else {
         alert(res.responseMessage);
