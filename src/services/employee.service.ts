@@ -18,4 +18,8 @@ export class EmployeeService {
   addEmployee(employee: Employee): Observable<Response> {
     return this.http.post<Response>(Endpoints.ADD_EMPLOYEE, employee);
   }
+
+  deleteEmployee(): Observable<Response> {
+    return this.http.get<Response>(Endpoints.DELETE_EMPLOYEE);
+  }
 }

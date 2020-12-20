@@ -10,6 +10,7 @@
 .form {
     width: 50%;
     padding: 2%;
+    display: block;
 }
 
 .error {
@@ -18,16 +19,18 @@
 }
 
 input{
-    display: block;
     padding: 1%;
 }
 
-select {
+.form select {
     display: block;
 }
 table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
+    overflow-y:scroll;
+    height:80%;
+    display:block;
   }
   
  td, th {
@@ -59,7 +62,7 @@ th {
   
   input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #DA70D6;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -67,7 +70,12 @@ th {
     border-radius: 4px;
     cursor: pointer;
   }
-  
+
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #a270da;
+  }
+
+ button.delete {
+    margin:auto;
+    display:block;
   }

@@ -44,7 +44,7 @@
     </form>
   </div>
   <div class="table">
-    <input type="text" [ngModel]="searchBox">
+    <input type="text" [(ngModel)]="searchBox" (ngModelChange)="onSearch()" placeholder="Search...">
     <table>
       <thead>
         <tr>
@@ -69,3 +69,4 @@
     </table>
   </div>
 </div>
+<button class= "delete" (click)="deleteAll()">Delete All</button>

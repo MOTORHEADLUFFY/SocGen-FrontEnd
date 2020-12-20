@@ -38,11 +38,7 @@ export class AppComponent {
       this.employeeData = res;
       this.displayData = res;
       this.displayData.sort( (a, b) => {
-        if (a.id < b.id)
-            return -1;
-        if (a.id > b.id)
-            return 1;
-        return 0;
+        return a.firstName.localeCompare(b.lastName);
       })
     })
   }
@@ -52,7 +48,6 @@ export class AppComponent {
     this.employeeService.addEmployee(employee).subscribe((res: Response) => {
       if(res.responseCode === "0"){
         this.createTable();
-        console.log(res);
       } else {
         alert(res.responseMessage);
       }
@@ -66,4 +61,30 @@ export class AppComponent {
     })
   }
 
+  onSearch(){
+    const copy = JSON.parse(JSON.stringify(this.employeeData));
+    this.displayData = copy.filter(row => {
+      let columns = Object.keys(row);
+      return (
+        columns
+          .map(column => {
+            if(column!='dateOfBirth')
+            return row[column];
+            else 
+            return row[column].substring(0 , 10);
+          })
+          .toString()
+          .toLowerCase()
+          .indexOf(this.searchBox.toLowerCase()) > -1
+      );
+    });
+    console.log(JSON.stringify(this.displayData));
+  }
+
+  deleteAll(){
+    this.employeeService.deleteEmployee().subscribe((res) => {
+      alert(res.responseMessage);
+      this.createTable();
+    })
+  }
 }
